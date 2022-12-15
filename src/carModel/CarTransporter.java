@@ -33,11 +33,15 @@ public class CarTransporter extends Truck {
     }
 
     public void loadCar(Car car) {
-        carLoader.loadCar(this.getPosition(), car);
+        if (canLoadCar()){
+            carLoader.loadCar(this.getPosition(), car);
+        }
     }
 
     public void unloadCar(Car car) {
-        carLoader.unloadCar(car);
+        if (canLoadCar()){
+            carLoader.unloadCar(car);
+        }
     }
 
     public boolean isCarInLoad(Car car) {
@@ -46,5 +50,9 @@ public class CarTransporter extends Truck {
 
     public boolean carInRange(Car other) {
         return carLoader.carInRange(this.getPosition(), other);
+    }
+
+    public boolean canLoadCar(){
+        return !isPlatformUp();
     }
 }

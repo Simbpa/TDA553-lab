@@ -30,8 +30,8 @@ public class LoadsCar {
     }
 
     public void unloadCar(Car car) {
-        loadedCarsList.remove(car);
-        car.setIsLoaded(false);
+            loadedCarsList.remove(car);
+            car.setIsLoaded(false);
     }
 
     public boolean isCarInLoad(Car car) {
@@ -46,5 +46,4 @@ public class LoadsCar {
     private boolean loadingSpotsLeft() {
         return loadedCarsList.size() < maximalLoadedCars;
     }
-
 }
